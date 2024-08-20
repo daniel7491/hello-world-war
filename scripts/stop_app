@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo docker ps -a | grep war-lidor
+EXITCODE=$?
+if [ "$EXITCODE" -ne "0" ]; then
+    #this is the catch part
+    echo "uh oh"
+    exit 0
+else
+    sudo docker stop war-lidor
+    sudo docker rm war-lidor
+
+fi
